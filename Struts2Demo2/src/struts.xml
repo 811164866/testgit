@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package  name="userAction" extends="struts-default">
+	     	
+	<action name="say" class="com.shy.Action.UserAction" method="say">
+	    <result name="yes">suc.jsp</result>
+	    <result name="no">fail.jsp</result>
+	</action>
+	<action name="addUser" class="com.shy.Action.UserAction" method="addUser"/>
+	<action name="showJapTag" class="com.shy.Action.UserAction" method="showJapTagJsp">
+			<result name="JapTagJsp">japTag.jsp</result>
+	</action>
+		
+		
+	<!-- 上传和下载 -->	
+	<action name="uploadAction" method="uploadFile" class="com.shy.Action.FileUploadAction">
+		<result name="ok"> suc.jsp </result>
+	</action>
+	
+	
+	<action name="fileDownload" method="exe1" class="com.shy.Action.FileDownloadAction">
+		<result name="ok" type="stream">
+		<!-- attachment声明下载文件时有提示选择框;指定下载文件文件名 -->
+		<param name="contentDisposition">attachment;filename=a.jpg</param>
+		<!-- inputName指定下载方法 -->
+		<param name="inputName">downFile</param>
+		</result>
+	</action>
+	</package>  
+</struts>
